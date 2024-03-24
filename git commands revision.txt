@@ -1,0 +1,275 @@
+To know git version
+--------------------------
+$ git --version
+git version 2.34.1.windows.1
+
+To know git user name
+--------------------------
+$ git config user.name
+Anoop Chandran
+
+To set git user name
+--------------------------
+$ git config --global user.name "anoop c"
+
+To get git user email
+--------------------------
+$ git config user.email
+anoopjavadeveloper@gmail.com
+
+To set git user email
+--------------------------
+$ git config --global user.email "anoopjavadeveloper@gmail.com"
+
+To check whether a folder is a git repository
+--------------------------
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+To list out all users
+--------------------------
+$ git config --global --list
+	filter.lfs.clean=git-lfs clean -- %f
+	filter.lfs.smudge=git-lfs smudge -- %f
+	filter.lfs.process=git-lfs filter-process
+	filter.lfs.required=true
+	user.name=Anoop Chandran
+	user.email=anoopestuate@gmail.com
+
+Configure user name and email
+-----------------------------------
+$ git config --global user.email "anoopjavadeveloper@gmail.com"
+$ git config --global user.name "Anoop Chandran"
+
+To check user names and email configured in git
+-----------------------------------------------
+vi ~/.gitconfig
+
+To get the contents of the directory
+----------------------------------------
+$ ls -l
+	total 0
+
+To initialize an empty repository
+----------------------------------------
+$ git init
+	Initialized empty Git repository in C:/gitMe/myRepoFromScratch/.git/
+
+To list all directories including hidden directories  use following command
+------------------------------------------------------------------------------
+$ ls -al
+	total 4
+	drwxr-xr-x 1 91989 197609 0 Jun 29 15:53 ./
+	drwxr-xr-x 1 91989 197609 0 Jun 29 15:51 ../
+	drwxr-xr-x 1 91989 197609 0 Jun 29 15:53 .git/
+
+To create a file in repository
+-----------------------------------	
+$ echo "This is my first file using echo command" >> firstFileUsingEcho.txt	
+
+To check the content of the file
+-----------------------------------
+$ cat firstFileUsingEcho.txt
+	This is my first file using echo command
+
+https://github.com/anoopjavadeveloper/sample-java-project.git
+
+To track the git status
+------------------------
+$ git status
+	On branch master
+
+	No commits yet
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			demo.txt
+			firstFileUsingEcho.txt
+			secondFileUsingVi.txt
+
+To add file to staging
+--------------------------
+$ git add demo.txt
+	warning: LF will be replaced by CRLF in demo.txt.
+	The file will have its original line endings in your working directory
+
+$ git status
+	On branch master
+
+	No commits yet
+
+	Changes to be committed:
+	  (use "git rm --cached <file>..." to unstage)
+			new file:   demo.txt
+
+	Untracked files:
+	  (use "git add <file>..." to include in what will be committed)
+			firstFileUsingEcho.txt
+			secondFileUsingVi.txt
+			
+$ git rm --cached demo.txt
+	rm 'demo.txt'
+
+Command to unstage a staged file
+--------------------------------------
+$ git restore --staged <file-name>	
+
+create a file using touch command
+-----------------------------------
+$touch testFile
+
+To commit a file
+----------------
+$ git commit -m "Commit message"
+
+For git status short
+----------------------
+git status -s 
+
+To get all the commit messages
+----------------------------
+git log
+
+To get git commit messages in one line
+----------------------------------------
+git log --oneline
+
+To stage all file at once.
+----------------------------------------
+$ git add .
+
+To make VS as your code editor and commit message editor.
+----------------------------------------
+$ git config --global core.editor "code --wait"
+
+To get logs in oneline
+----------------------------------------
+$ git log --oneline
+
+To undo last commit
+----------------------------------------
+$ git commit --amend -m "undo"
+
+To create a git ignore file
+----------------------------------------
+$ touch .gitignore
+and then add secretfiles to it manually
+
+To stage and commit in a single step
+----------------------------------------
+$ git commit -a -m "commit message"
+
+To create and switch the branch in a single step
+------------------------------------
+$ git switch -c branch_name
+$ git checkout -b branch_name
+
+To create and switch the branch in a single step
+------------------------------------
+$ git switch  branch_name
+$ git checkout branch_name
+
+To delete a branch
+------------------------------------
+$ git branch -d old_movies_delete
+
+To rename a branch
+------------------------------------
+$ git branch -m old_movie_list
+
+Difference between staged and unstaged
+------------------------------------
+git diff
+
+
+Difference between Head and current working directory
+------------------------------------
+git diff HEAD
+
+Difference between Head and staged commits
+------------------------------------
+git diff staged
+
+Difference between Head and staged commits file name
+------------------------------------
+git diff HEAD filename1, filename2
+
+Difference between branch1 and branch2 file name
+------------------------------------
+git diff branch1..branch2
+
+Difference between commit1 and commit2 file name
+------------------------------------
+git differ commit1..commit2
+
+
+To put things in stash and to retrieve on retrieving the changes are no longer in stash
+------------------------------------
+git stash save OR git stash
+git stash pop
+
+to retrieve on retrieving the changes are in stash so that we can apply in multiple places(not used regularly)
+apply do not remove the change from stash memory only pop do. 
+------------------------------------
+git stash apply
+
+To view what is in stash
+------------------------------------
+git stash list
+
+To retrieve particular stash change
+------------------------------------
+git stash apply stash@{2}
+
+To drop particular stash change
+------------------------------------
+git stash drop stash@{2}
+
+To delete all stash changes
+------------------------------------
+git stash clear
+
+To checkout a commit in detached head
+------------------------------------
+git checkout commit_id
+
+git switch -c new_branch_for_commit ----This attach the head to the branch and a new branch is created.
+
+To checkout a commit just before where HEAD is pointed
+------------------------------------
+git checkout HEAD~1
+
+To go back to branch before the detached head
+------------------------------------
+git switch -
+
+To revert the changes of a file back to HEAD version
+------------------------------------
+git checkout HEAD filename.txt
+OR
+git checkout -- filename1.txt, filename2.txt
+OR
+git restore filename1
+
+
+To restore the changes since last commit
+------------------------------------
+git restore filename1
+
+git restore --source HEAD~1 filename1.txt
+
+To unstage staged file
+---------------------------------
+git restore --staged filename1.txt
+
+To remove commits from a branchn, it dont delete changes in the removed commits will place in working directory
+---------------------------------
+git reset commit_id
+
+To remove commits from a branch and changes will be discarded
+------------------------------------
+git reset --hard commit_id
+
+To remove commits from a branch and creates another branch with reverted changes eliminated.
+------------------------------------
+git revert commit_id
