@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Spring5webappApplication {
 
 	public static void main(String[] args) {
-		System.out.println("started bug fixes");
+		System.out.println("I am changed");
 		SpringApplication.run(Spring5webappApplication.class, args);
 		System.out.println("finished bug fixes");
 	}
